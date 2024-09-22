@@ -1,0 +1,106 @@
+body {
+    background-color: #1e1e1e;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Prevents scrolling */
+}
+
+h2, p {
+    margin: 10px 0; /* Add margin for spacing */
+    text-align: center; /* Center the text */
+}
+
+.terminal {
+    background-color: #1b1b1b;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+}
+
+
+.cli-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #00ff00;
+    font-size: 14px;
+}
+
+.output {
+    margin-bottom: 10px;
+    max-height: 60%;
+    overflow-y: auto;
+}
+
+.qr-output {
+    resize:none;
+    background-color: #111;
+    border-radius: 0;
+    height: 2%; /* Reduced height for QR output */
+    overflow: hidden; /* Prevent scrolling */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.prompt-animation {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease-in-out;
+}
+
+.prompt-animation.appeared {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#output pre, #qr-output pre {
+    height: fit-content;
+     overflow: hidden;
+    font-size: 10px;
+    line-height: 0.9;
+    margin:  0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.qr-animation {
+    white-space: pre;
+    font-size: 4px; /* Smaller font size for QR */
+    line-height: 1;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .cli-input {
+        font-size: 12px;
+    }
+
+    .output {
+        max-height: 55%;
+    }
+
+    .qr-output {
+        height: 5%; /* Maintain small size */
+    }
+}
+
+@media (max-width: 480px) {
+    .cli-input {
+        font-size: 10px;
+    }
+
+    #output pre, #qr-output pre {
+        font-size: 10px;
+    }
+}
